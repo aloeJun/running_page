@@ -91,7 +91,9 @@ English | [简体中文](https://github.com/yihong0618/running_page/blob/master/
 | [Echo](https://github.com/donghao526)             | <https://donghao526.github.io/running>         | JoyRun      |
 | [Jeffggmm](https://github.com/Jeffggmm)           | <https://jeffggmm.github.io/workouts_page/>    | Garmin      |
 | [s1smart](https://github.com/s1smart)             | <https://s1smart.github.io/running_page/>      | Strava      |
-
+| [XmchxUp](https://github.com/XmchxUp)             | <https://xmchxup.github.io/running_page/>      | Strava      |
+| [Ryan](https://github.com/85Ryan)                 | <https://85ryan.github.io/gooorun/>            | Strava      |
+| [PPZ](https://github.com/8824PPZ)                 | <https://run.dudubbbbbbbbb.top/>            | Strava      |
 </details>
 
 ## How it works
@@ -212,6 +214,13 @@ siteMetadata: {
 const USE_DASH_LINE = true;
 // styling: route line opacity: [0, 1]
 const LINE_OPACITY = 0.4;
+```
+
+- To use Google Analytics, you need to modify the configuration in the `src/utils/const.ts` file.
+
+```typescript
+const USE_GOOGLE_ANALYTICS = false;
+const GOOGLE_ANALYTICS_TRACKING_ID = '';
 ```
 
 > privacy protection,setting flowing env:
@@ -381,12 +390,13 @@ python3(python) run_page/garmin_sync.py xxxxxxxxxxxxxx(secret_string)  --is-cn -
 
 Get Nike's `refresh_token`
 
-1. Login [Nike](https://www.nike.com) website
-2. In Develop -> Application-> Storage -> https:unite.nike.com look for `refresh_token`
+**ALL need to do outside GFW**
 
-<br>
+![example img](https://user-images.githubusercontent.com/67903793/282300381-4e7437d0-65a9-4eed-93d1-2b70e360215f.png)
 
-![image](https://user-images.githubusercontent.com/15976103/94448123-23812b00-01dd-11eb-8143-4b0839c31d90.png)
+1. Login from this [website](https://unite.nike.com/s3/unite/mobile.html?androidSDKVersion=3.1.0&corsoverride=https%3A%2F%2Funite.nike.com&uxid=com.nike.sport.running.droid.3.8&backendEnvironment=identity&view=login&clientId=VhAeafEGJ6G8e9DxRUz8iE50CZ9MiJMG), open F12 -> XHR -> get the `refresh_token` from login api.
+
+2. copy this `refresh_token` and use it in GitHub Secrets or in command line
 
 3. Execute in the root directory:
 
@@ -719,8 +729,6 @@ For more display effects, see:
 - Some browsers (e.g. Chrome) won't refresh if there is a cache, you then need to use `Ctrl+F5` (Windows) or `Shift+Cmd+r` (Mac) to force clearing the cache and reload the page.
 
 4. make sure you have write permissions in Workflow permissions settings.
-
-
 
 5. If you want to deploy your running_page to xxx.github.io instead of xxx.github.io/running_page, you need to do three things:
 
